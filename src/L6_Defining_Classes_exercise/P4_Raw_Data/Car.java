@@ -2,9 +2,9 @@ package L6_Defining_Classes_exercise.P4_Raw_Data;
 
 public class Car {
     private String model;
-    private Engine engine;
-    private Cargo cargo;
-    private Tires tires;
+    private Engine engine = new Engine();
+    private Cargo cargo = new Cargo();
+    private Tires tires = new Tires();
 
 //    public Car(String model, Engine engine, Cargo cargo, Tires tires){
 //        this.model = model;
@@ -29,5 +29,9 @@ public class Car {
 
     public Tires getTires() {
         return tires;
+    }
+
+    public String getModel() {
+        return this.model;
     }
 }

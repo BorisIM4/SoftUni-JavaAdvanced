@@ -55,4 +55,20 @@ public class Tires {
     public void setTire4Age(int tire4Age) {
         this.tire4Age = tire4Age;
     }
+
+    public double getTire1Presure() {
+        return this.tire1Presure;
+    }
+
+    public double getTire2Presure() {
+        return this.tire2Presure;
+    }
+
+    public double getTire3Presure() {
+        return this.tire3Presure;
+    }
+
+    public double getTire4Presure() {
+        return this.tire4Presure;
+    }
 }

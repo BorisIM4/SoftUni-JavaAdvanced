@@ -17,4 +17,8 @@ public class Cargo {
     public void setCargoType(String cargoType) {
         this.cargoType = cargoType;
     }
+
+    public String getCargoType() {
+        return this.cargoType;
+    }
 }

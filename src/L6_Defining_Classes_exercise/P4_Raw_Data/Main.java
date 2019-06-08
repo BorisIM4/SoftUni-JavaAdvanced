@@ -55,7 +55,31 @@ public class Main {
 
         }
 
-        System.out.println();
+        String controlCargoType = scanner.nextLine();
+
+        for (Car car : cars) {
+            String currnetCarCargoType = car.getCargo().getCargoType();
+
+            if (currnetCarCargoType.equals(controlCargoType) && currnetCarCargoType.equals("fragile")) {
+                double currentCarTire1Presure = car.getTires().getTire1Presure();
+                double currentCarTire2Presure = car.getTires().getTire2Presure();
+                double currentCarTire3Presure = car.getTires().getTire3Presure();
+                double currentCarTire4Presure = car.getTires().getTire4Presure();
+
+                if (currentCarTire1Presure < 1
+                        || currentCarTire2Presure < 1
+                        || currentCarTire3Presure < 1
+                        || currentCarTire4Presure < 1) {
+
+                    System.out.println(car.getModel());
+                }
+            } else {
+                int currentCarEnginePower = car.getEngine().getEnginPower();
+                if (currentCarEnginePower > 250){
+                    System.out.println(car.getModel());
+                }
+            }
+        }
 
     }
 }
