@@ -25,4 +25,19 @@ public class Employee {
         this.age = age;
     }
 
+    public double getSalary() {
+        return this.salary;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
 }

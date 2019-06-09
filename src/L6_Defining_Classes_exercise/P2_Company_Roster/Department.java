@@ -10,8 +10,20 @@ public class Department {
         this.employees = new ArrayList<>();
     }
 
+    public List<Employee> getEmployees(){
+        return this.employees;
+    }
+
     public void addEmployee(Employee employee){
+        this.employees.add(employee);
 
+    }
 
+    public double getAverageSalary() {
+            return this.employees
+                    .stream()
+                    .mapToDouble(Employee::getSalary)
+                    .average()
+                    .getAsDouble();
     }
 }
