@@ -9,7 +9,15 @@ public class P1_Test {
 
 //        System.out.println("Hello World!");
 
-        ArrayDeque<Integer> stack = new ArrayDeque<Integer>(5);
+        ArrayDeque<Integer> test = new ArrayDeque<>();
 
+        for (int i = 0; i < 10; i++) {
+            test.offer(i);
+        }
+
+
+        System.out.println(test.poll());
+
+        System.out.println(test.pop());
     }
 }
