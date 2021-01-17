@@ -1,23 +1,27 @@
 package L1_Stacks_and_Queues;
 
-import java.util.ArrayDeque;
-import java.util.Scanner;
+import java.util.*;
 
 public class P1_Test {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-//        System.out.println("Hello World!");
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
 
-        ArrayDeque<Integer> test = new ArrayDeque<>();
+        Arrays.stream(scanner
+                    .nextLine()
+                    .split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .forEach(stack::push);
 
-        for (int i = 0; i < 10; i++) {
-            test.offer(i);
-        }
+        ArrayDeque<Integer> queue = new ArrayDeque<>();
 
+        Arrays.stream(scanner
+                .nextLine()
+                .split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .forEach(queue::offer);
+        System.out.println();
 
-        System.out.println(test.poll());
-
-        System.out.println(test.pop());
     }
 }
