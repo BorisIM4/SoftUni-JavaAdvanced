@@ -16,8 +16,6 @@ public class P1_Unique_Usernames {
             String currentName = scanner.nextLine();
             names.add(currentName);
         }
-        names.forEach(name -> {
-            System.out.println(name);
-        });
+        names.forEach(System.out::println);
     }
 }
