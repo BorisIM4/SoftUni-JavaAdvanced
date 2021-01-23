@@ -35,7 +35,6 @@ public class P2_Write_to_File {
             singleByte = inputStream.read();
         }
         writer.close();
-
         inputStream.close();
     }
 }
