@@ -26,7 +26,6 @@ public class P1_Sum_Lines {
                 line = reader.readLine();
             }
 
-
         } catch (IOException ex){
             System.out.println(ex.getMessage());
         }
