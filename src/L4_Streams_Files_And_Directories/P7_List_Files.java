@@ -10,14 +10,14 @@ public class P7_List_Files {
                 "/SoftUni" +
                 "/03-SU-Java-Advanced-2021-01" +
                 "/04. Java-Advanced-Files-and-Streams-Lab-Resources" +
-                "/Files-and-Streams/input.txt";
+                "/Files-and-Streams";
 
         File files = new File(fileName);
 
         File[] innnerFiles = files.listFiles();
 
         for (File innerFile:innnerFiles) {
-            if (!innerFile.isFile()) {
+            if (!innerFile.isDirectory()) {
                 System.out.printf("%s: [%d]%n"
                         ,innerFile.getName()
                         ,innerFile.length());
