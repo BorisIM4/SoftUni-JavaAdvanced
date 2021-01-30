@@ -1,39 +1,62 @@
 package L6_Defining_Classes_exercise.P3_Speed_Racing;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter start number: ");
-        int startNumber = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter multiply number: ");
-        int multiplayer = Integer.parseInt(scanner.nextLine());
-        System.out.println("How many times to do this operation: ");
-        int numberOfRotation = Integer.parseInt(scanner.nextLine());
+        int numberOfCars = Integer.parseInt(scanner.nextLine());
 
-        ClassOne firstClass = new ClassOne();
+        List<Cars> listOfCars = new LinkedList<>();
 
-        //set start number in classTwo
-        firstClass.getClassTwo().setStartnumber(startNumber);
+        for (int car = 0; car < numberOfCars; car++) {
+            String[] tokenOfCurentCar = scanner.nextLine().split("\\s+");
+            String nameOfCurrentCar = tokenOfCurentCar[0];
+            int gasTankOfCurrentCar = Integer.parseInt(tokenOfCurentCar[1]);
+            double fuelCostFor1km = Double.parseDouble(tokenOfCurentCar[2]);
 
-        //set multiplay number in ClassThree
-        firstClass.getClassTwo().getClassThree().setMultiplayer(multiplayer);
+            Cars currentCar = new Cars(nameOfCurrentCar, gasTankOfCurrentCar, fuelCostFor1km);
+            listOfCars.add(currentCar);
+        }
 
-        //set how many times to rotate for loop
-        firstClass.getClassTwo().getClassThree().setNumberOfRotation(numberOfRotation);
+        String line = "";
+        while (!"End".equals(line = scanner.nextLine())) {
+            String[] token = line.split("\\s+");
+            String carModel = token[1];
+            double travelKm = Double.parseDouble(token[2]);
 
-        int thisIsGetFromClassThree = firstClass.getClassTwo().getClassThree().getNumberOfRotation();
-        for (int i = 0; i < thisIsGetFromClassThree; i++) {
-            int currentStartPosition = firstClass.getClassTwo().getStartNumber();
-            int currnetMultiplayher = firstClass.getClassTwo().getClassThree().getMultiplayer();
+            for (int car = 0; car < listOfCars.size(); car++) {
+                Cars currnetCar = listOfCars.get(car);
+                if (carModel.equals(currnetCar.getCarModel())) {
+                    double tankSizeCurrCar = currnetCar.getGasTankSize();
+                    double fuelCostOfCurrCar = currnetCar.getFuelCostFor1km();
+                    double kilometerMultiplyByCost = travelKm * fuelCostOfCurrCar;
 
-            currentStartPosition *= currnetMultiplayher;
+                    if (kilometerMultiplyByCost > tankSizeCurrCar) {
+                        System.out.println("Insufficient fuel for the drive");
+                    } else {
+                        double leftFuel = tankSizeCurrCar - kilometerMultiplyByCost;
+                        currnetCar.setGasTankSize(leftFuel);
+                        currnetCar.setTraveledKm(travelKm);
+                    }
+                }
+            }
+        }
 
-            firstClass.getClassTwo().setStartnumber(currentStartPosition);
+        for (Cars currentCar : listOfCars) {
+            String model = currentCar.getCarModel();
+            double tankSize = currentCar.getGasTankSize();
+            double traveledKm = currentCar.getTraveledKm();
 
-            System.out.println(currentStartPosition);
+            System.out.printf("%s %.2f %.0f%n"
+                    , model
+                    , tankSize
+                    , traveledKm);
+
         }
 
     }
