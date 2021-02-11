@@ -1,6 +1,5 @@
 package L8_Generics_exercise.P5_Generic_Count_Method_String;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
