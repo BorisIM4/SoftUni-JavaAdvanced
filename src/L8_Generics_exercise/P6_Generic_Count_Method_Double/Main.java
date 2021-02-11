@@ -16,6 +16,5 @@ public class Main {
 
         Double toCompare = Double.parseDouble(scanner.nextLine());
         System.out.println(box.countGreaterElements(toCompare));
-
     }
 }
