@@ -4,35 +4,21 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class P2_Sum_Bytes {
     public static void main(String[] args) throws IOException {
-        String filePath = "C:\\Users\\lord_\\Desktop\\04. Java-Advanced-Streams-Files-and-Directories-Resources\\04. Java-Advanced-Files-and-Streams-Exercises-Resources\\input.txt";
+        Path pathFile = Path.of("D:\\Programirane\\Java\\SoftUni\\03-SU-Java-Advanced-2021-01\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\input.txt");
 
-        String outPutPath = filePath.substring(0 ,filePath.lastIndexOf("\\") + 1) + "zadacha_2.txt";
-
-        FileWriter writer = writer = new FileWriter(outPutPath);
-        try{
-            BufferedReader reader = new BufferedReader(new FileReader(filePath));
-            String line = reader.readLine();
-            int asciiSum = 0;
-            while (line != null) {
-
-                for (char symbol : line.toCharArray()) {
-                    asciiSum += symbol;
-                }
-
-
-                line = reader.readLine();
+        long sum = 0;
+        byte[] values = Files.readAllBytes(pathFile);
+        for (byte value : values) {
+            if (value == 10 || value == 13) {
+                continue;
             }
-
-            writer.write(asciiSum + "");
-            writer.write(System.lineSeparator());
-
-        } catch (IOException ex){
-            System.out.println(ex.getMessage());
+            sum += value;
         }
-
-        writer.close();
+        System.out.println(sum);
     }
 }
