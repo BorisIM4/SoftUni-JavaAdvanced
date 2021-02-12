@@ -5,7 +5,7 @@ import java.io.*;
 public class P1_Sum_Lines {
     public static void main(String[] args) throws IOException {
 
-        String filePath = "C:\\Users\\lord_\\Desktop\\04. Java-Advanced-Streams-Files-and-Directories-Resources\\04. Java-Advanced-Files-and-Streams-Exercises-Resources\\input.txt";
+        String filePath = "D:\\Programirane\\Java\\SoftUni\\03-SU-Java-Advanced-2021-01\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\input.txt";
 
         String outPutPath = filePath.substring(0 ,filePath.lastIndexOf("\\") + 1) + "asciSum.txt";
 
