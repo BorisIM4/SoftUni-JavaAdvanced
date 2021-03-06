@@ -56,6 +56,10 @@ public class Hints {
         for (int i = -1; i < 2; i++) {
             System.out.println(predicate.test(i));
         }
+        //Example 3 -
+        if (predicate.test(7)) {
+            System.out.println(7 + " is grater than zero");
+        }
 
 
         //------------------------------------------------------------------------------------------------------------
